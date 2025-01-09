@@ -22,6 +22,9 @@ mentionslist = ["<@!159985870458322944>", "<@!269705573795102720>"]
 emoji = '\N{OCTAGONAL SIGN}'
 #use emojipedia to find "unicode name"
 
+emoji2 = '\N{thumbup}'
+#use emojipedia to find "unicode name"
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -78,6 +81,7 @@ async def on_message(message):
 
     elif  any(word in msg for word in server_test)
         await message.channel.send('The Server is up and running!')
+        await message.add_reaction(emoji2)
 
     #Welcome Users Entry
     @bot.event
