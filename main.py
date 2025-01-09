@@ -1,9 +1,15 @@
 import discord
+from discord.ext import commands
 import os
 import asyncio
 import random
 
 client = discord.Client()
+
+#Welcome Users
+intents = discord.Intents.default()
+intents.members = True
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 bad_words = ["fuck", "Fuck", "Retard", "retard", "damn","sucks", "Sucks"]
 
@@ -67,6 +73,13 @@ async def on_message(message):
         
     elif "Shit" in message.content:
         await message.channel.send('You know, you can just go, No need to act like an Akudama')
+
+    #Welcome Users Entry
+    @bot.event
+    async def on_member_join(member):
+        channel = member.guild.system_channel  # Use the default system channel
+        if channel is not None:
+        await channel.send(f"Welcome to the server, {member.mention}!")
 
 
     if any(word in msg for word in bad_words):
