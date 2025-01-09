@@ -11,6 +11,8 @@ intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+server_test = ["servertest"]
+
 bad_words = ["fuck", "Fuck", "Retard", "retard", "damn","sucks", "Sucks"]
 
 meepodefense = ["You should be nicer to <@159985870458322944> !", "Be Nice!", "You should be nicer!", "Not nice Akudama....", "You sound like an executer...", "AKUDAMA!", "I'm calling cut-throat...", "(╯°□°）╯︵ ┻━┻  .........  ┬─┬ ノ( ゜-゜ノ)", "Poof!", "<@159985870458322944> is doing his best ok!", "(╯°□°）╯︵ ┻━┻  AKUDAMA!"]
@@ -73,6 +75,9 @@ async def on_message(message):
         
     elif "Shit" in message.content:
         await message.channel.send('You know, you can just go, No need to act like an Akudama')
+
+    elif  any(word in msg for word in server_test)
+        await message.channel.send('The Server is up and running!')
 
     #Welcome Users Entry
     @bot.event
