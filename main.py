@@ -25,6 +25,9 @@ emoji = '\N{OCTAGONAL SIGN}'
 emoji2 = '\N{thumbup}'
 #use emojipedia to find "unicode name"
 
+emoji3 = '\N{tada}'
+#use emojipedia to find "unicode name"
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -89,6 +92,7 @@ async def on_message(message):
         channel = member.guild.system_channel  # Use the default system channel
         if channel is not None:
         await channel.send(f"Welcome to the server, {member.mention}!")
+        await message.add_reaction(emoji3)
 
 
     if any(word in msg for word in bad_words):
